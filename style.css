@@ -1,0 +1,56 @@
+body {
+    background-image: url(https://media.istockphoto.com/id/1450076064/vector/poker-and-casino-table-background-in-green-color-vector-illustration.jpg?s=612x612&w=0&k=20&c=W-c4NiG5aeb9G7uYrQ7H-2U_lBJfjALDiYcXEpHzVtg=);
+    background-repeat: repeat; 
+    height: 200%;
+    background-position: center;
+    background-size: cover;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+th {
+    border: 1px solid black;
+    background: salmon;
+    padding: .5em;
+}
+
+td {
+    background-color: rgb(251, 157, 147);
+    border: 1px solid black;
+    padding: .5em;
+    text-align: center;
+}
+div#create-player {
+    margin: auto;
+    width: 15%;
+    background: brown;
+    border: 10px inset brown;
+    color: yellow;
+}
+input {
+    display: block;
+    border: 1px solid black;
+    background: rgb(75, 20, 20);
+    color: yellow;
+}
+#create-button {
+    margin-top: 10px;
+}
+fieldset {
+    background-color: brown;
+    border: none;
+}
+legend {
+    background: rgb(139, 35, 35);
+}
+h5 {
+    background: rgb(139, 35, 35);
+    display: inline-block;
+}
+#invis-1 {
+    display: none;
+}
+#invis-2 {
+    display: none;
+}
