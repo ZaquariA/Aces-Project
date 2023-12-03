@@ -1,0 +1,28 @@
+{
+    "Players": [
+        {
+            "id": 1,
+            "player": "Zaquari",
+            "points": 150,
+            "wins": 0,
+            "loses": 7,
+            "delete": "X"
+        },
+        {
+            "id": 2,
+            "player": "Igor",
+            "points": 150,
+            "wins": 5,
+            "loses": 2,
+            "delete": "X"
+        },
+        {
+            "id": 3,
+            "player": "Dakota",
+            "points": 150,
+            "wins": 23,
+            "loses": 0,
+            "delete": "X"
+        }
+    ]
+}
