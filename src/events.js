@@ -42,6 +42,6 @@ function callDealerHit() {
       .then(cards => showCardOnTable(cards, "#cards_casino"))
 }
 
-startGame()
+startGame()   
 callHit()
 callStand()
