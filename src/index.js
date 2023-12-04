@@ -13,10 +13,20 @@ let dealerCardsValue = 0
 
 let userDone = false
 
+let cardsValArr = ["ACE", "ACE"]
+
+showBackOfCards()
+
+// userPatch(urlUsers, "DELETE", {}, 3)
+// userPatch(urlUsers, "PATCH",{somedata}, 3)
+// .then(data => {
+//   console.log(data)
+// })
+
 // Users Funtionality
 urlGet(urlUsers)
   .then(data => {
-    console.log('RES: ', data)
+    // console.log('RES: ', data)
 
     showUsers(data)
   })
@@ -26,7 +36,7 @@ function showUsers(users) {
   
 
   users.forEach(user => {
-    console.log(user)
+    // console.log(user)
     const li = createEl('li')
     const deleteBtn = createEl('button')
     li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
@@ -40,7 +50,7 @@ function showUsers(users) {
 // Work with CARDS
 
 function getCardValue(card) {
-  console.log(card.value)
+  // console.log(card.value)
   switch (card.value) {
     case "1":
       return 1
@@ -107,18 +117,19 @@ function showCardOnTable(cards, cardsEl) {
     img.style = "width:100%"
     crd.append(img)
 
+    getEl('#btn_hit').style.visibility=""
+    getEl('#btn_stand').style.visibility=""
+    console.log('SHOW CARD')
     addPlayerValue(card, cardsEl)
     updateTableScore(cardsEl)
-    if ( userDone) {
-      checkResult()
-    }
+    checkResult()
   })
 }
 
 function addPlayerValue(card, player) {
-  console.log(card.value, ' : ', player)
+  // console.log(card.value, ' : ', player)
   const value = getCardValue(card)
-  console.log('Value: ', value)
+  // console.log('Value: ', value)
   if (player === "#cards_player") {
     playerCardsValue += value
   } else {
@@ -131,6 +142,7 @@ function cleanTable() {
   cardsEl.innerHTML = ''
   const cardsEl2 = getEl('#cards_casino')
   cardsEl2.innerHTML = ''
+  // showBackOfCards()
 
   playerCardsValue = 0
   dealerCardsValue = 0
@@ -147,29 +159,27 @@ function updateTableScore(player) {
   }
 }
 
-function checkResult() {
-  if (userDone && playerCardsValue > 21) {
-    alert('You lose!')
-    cleanTable()
-  } else if (dealerCardsValue > 21 ){
-    alert('You win!')
-    cleanTable()
-  } else if (dealerCardsValue < 15 ) {
-    callDealerHit()
-  } else if (dealerCardsValue >= 15 ) {
-    if (playerCardsValue > dealerCardsValue) {
-      alert('You win!')
-      cleanTable()
-    } else {
-      alert('You lose!')
-      cleanTable()
-    }
-  }
+function setGameStatus(text){
+  getEl('#game_status').textContent = text
+
+  getEl('#btn_hit').style.visibility="hidden"
+  getEl('#btn_stand').style.visibility="hidden"
 }
 
+function showBackOfCards() {
+  const arrCards = ['#cards_player', '#cards_player', '#cards_casino', '#cards_casino']
+  
+  arrCards.forEach( cardEl => {
+    const crd = getEl(cardEl)
+    const img = createEl('img')
 
+    img.src = "https://deckofcardsapi.com/static/img/back.png"
+    img.alt = "Avatar"
+    img.style = "width:100%"
+    crd.append(img)
 
-
+  })
+}
 
 
 
@@ -194,12 +204,23 @@ function createEl(el) {
 
 // URL Functions
 // GET
+// urlGet(url)
+// .then(data => {
+//   data.map(item => {
+//     get Element
+//     create new element
+
+//     append
+//   })
+// })
+
 function urlGet(url) {
   return fetch(url)
     .then(res => res.json())
 }
 
 // PATCH and DELETE
+// userPtch(url, "PATCH/DELETE", {}, 3)
 function userPatch(url, method, body, id) {
   const options = {method: method,
     body: JSON.stringify(body),
