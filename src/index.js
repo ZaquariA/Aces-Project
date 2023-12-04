@@ -148,7 +148,7 @@ function updateTableScore(player) {
 }
 
 function checkResult() {
-  if (playerCardsValue > 21) {
+  if (userDone && playerCardsValue > 21) {
     alert('You lose!')
     cleanTable()
   } else if (dealerCardsValue > 21 ){
