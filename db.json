@@ -1,28 +1,46 @@
 {
-    "Players": [
-        {
-            "id": 1,
-            "player": "Zaquari",
-            "points": 150,
-            "wins": 0,
-            "loses": 7,
-            "delete": "X"
-        },
-        {
-            "id": 2,
-            "player": "Igor",
-            "points": 150,
-            "wins": 5,
-            "loses": 2,
-            "delete": "X"
-        },
-        {
-            "id": 3,
-            "player": "Dakota",
-            "points": 150,
-            "wins": 23,
-            "loses": 0,
-            "delete": "X"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "Zaquari",
+      "points": 50,
+      "wins_loses": [
+        3,
+        5
+      ],
+      "last5games": [
+        "Player",
+        "Casino",
+        "Player",
+        "Player",
+        "Casino"
+      ]
+    },
+    {
+      "id": 2,
+      "username": "Dakota",
+      "points": 150,
+      "wins_loses": [
+        5,
+        5
+      ],
+      "last5games": [
+        "Player",
+        "Casino",
+        "Player",
+        "Player",
+        "Casino"
+      ]
+    },
+    {
+      "username": "Igor",
+      "points": 100,
+      "wins_loses": [
+        0,
+        0
+      ],
+      "last5games": [],
+      "id": 3
+    }
+  ]
 }

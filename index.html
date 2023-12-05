@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <title>Aces-Project</title>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <script defer src="src/index.js"></script>
-        <div id="create-player">
-            <fieldset>
-                <legend>Create your player!</legend>
-                <form>
-                <h5>Player Name</h5>
-                    <input id="player-input">
-                <h5>Point Amount</h5>
-                    <input id="points-input">
-                <input type="submit" id="create-button">
 
-                </form>
-            </fieldset>
-        </div>
-        <table id='section-1'>
-            <tr>
-                <th id="player">Player</th>
-                <th id="points">Points</th>
-                <th id="wins-loses">Wins/Loses</th>
-                <th id="delete">Delete</th>
-            </tr>
-        </table>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <div id="users-panel">
+    
+    <form id="player-form">
+      <label for="pname">Player Name:</label>
+      <input type="text" id="pname" name="pname"><br>
+      <input id="create-player" type="submit" value="Create">    
+    </form>
+    <table id="player-table">
+        <tr>
+            <th id="player">Player</th>
+            <th id="points">Points</th>
+            <th id="winsLoses">Wins/Loses</th>
+            <th id="invis"></th>
+        </tr>
+      </table>
+
+  </div>
+
+  <div id="game-panel">
+    <h1 id="game_status">Welcome to Aces Casino</h1>
+    <button id="btn_new_game">Start GAme</button>
+
+    <p id="score_casino">Casino: 0</p>
+    <div id="cards_casino" class="card">
+    </div>
+
+    <p id="score_player">Player: 0</p>
+    <div id="cards_player" class="card">
+    </div>
+    <br>
+    <button id="btn_hit">HIT</button>
+    <button id="btn_stand">STAND</button>
+
+  </div>
+
+
+
+
+  <div id="score-panel">
+    <ul id="score">
+      <p>Wins/Loses</p>
+    </ul>
+  </div>
+  <script type="text/javascript" src="./src/index.js"></script>
+  <script type="text/javascript" src="./src/dealer.js"></script>
+  <script type="text/javascript" src="./src/events.js"></script>
+</body>
+
 </html>
