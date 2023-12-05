@@ -9,7 +9,7 @@ function startGame() {
         deckId = data.deck_id
 
         cleanDataForNewGame()
-        // showBackOfCards()
+        showBackOfDealerCards()
   
         getCards(deckId, 2)
           .then(cards => showCardOnTable(cards, "#cards_player"))
@@ -18,7 +18,8 @@ function startGame() {
 }
 
 function cleanDataForNewGame() {
-  cleanTable()
+  cleanPlayerTable()
+  cleanDealerTable()
 
   userDone = false
   getEl('#game_status').textContent = "In process..."
@@ -37,6 +38,7 @@ function callHit() {
 function callStand() {
   getEl('#btn_stand').addEventListener('click', () => {
     console.log('STAND')
+    cleanDealerTable()
     userDone = true
     getCards(deckId, 1)
       .then(cards => showCardOnTable(cards, "#cards_casino"))

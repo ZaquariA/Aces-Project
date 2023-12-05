@@ -15,7 +15,8 @@ let userDone = false
 
 let cardsValArr = ["ACE", "ACE"]
 
-showBackOfCards()
+showBackOfPlayerCards()
+showBackOfDealerCards()
 
 // userPatch(urlUsers, "DELETE", {}, 3)
 // userPatch(urlUsers, "PATCH",{somedata}, 3)
@@ -137,17 +138,22 @@ function addPlayerValue(card, player) {
   }
 }
 
-function cleanTable() {
+function cleanPlayerTable() {
   const cardsEl = getEl('#cards_player')
   cardsEl.innerHTML = ''
+  
+  playerCardsValue = 0
+
+  getEl('#score_player').textContent = `Player: 0`
+}
+
+function cleanDealerTable() {
   const cardsEl2 = getEl('#cards_casino')
   cardsEl2.innerHTML = ''
   // showBackOfCards()
 
-  playerCardsValue = 0
   dealerCardsValue = 0
 
-  getEl('#score_player').textContent = `Player: 0`
   getEl('#score_casino').textContent = `Casino: 0`
 }
 
@@ -166,8 +172,23 @@ function setGameStatus(text){
   getEl('#btn_stand').style.visibility="hidden"
 }
 
-function showBackOfCards() {
-  const arrCards = ['#cards_player', '#cards_player', '#cards_casino', '#cards_casino']
+function showBackOfPlayerCards() {
+  const arrCards = ['#cards_player', '#cards_player']
+  
+  arrCards.forEach( cardEl => {
+    const crd = getEl(cardEl)
+    const img = createEl('img')
+
+    img.src = "https://deckofcardsapi.com/static/img/back.png"
+    img.alt = "Avatar"
+    img.style = "width:100%"
+    crd.append(img)
+
+  })
+}
+
+function showBackOfDealerCards() {
+  const arrCards = ['#cards_casino', '#cards_casino']
   
   arrCards.forEach( cardEl => {
     const crd = getEl(cardEl)
