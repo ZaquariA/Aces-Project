@@ -80,5 +80,17 @@ function postUrl(newUser) {
 
   fetch(url, options)
     .then(res => res.json())
-      .then(user => console.log(user))
+      .then(user => createTable(user))
+}
+
+function createTable(user) {
+  // create new row
+  // paste information from user object into new row
+
+  const userName = document.createElement('td')
+  userName.textContent = user.username
+  userName.addEventListener('click', () => {
+    // Nothing here
+  })
+
 }
