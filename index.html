@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <div id="users-panel">
+    <form>
+      <label for="pname">Player Name:</label>
+      <input type="text" id="pname" name="pname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <ul id="list">
+    </ul>
+  </div>
+
+  <div id="game-panel">
+    <h1 id="game_status">Welcome to Aces Casino</h1>
+    <button id="btn_new_game">Start GAme</button>
+
+    <p id="score_casino">Casino: 0</p>
+    <div id="cards_casino" class="card">
+    </div>
+
+    <p id="score_player">Player: 0</p>
+    <div id="cards_player" class="card">
+    </div>
+    <br>
+    <button id="btn_hit">HIT</button>
+    <button id="btn_stand">STAND</button>
+
+  </div>
+
+
+
+
+  <div id="score-panel">
+    <ul id="score">
+      <h2>Game History</h2>
+      <h3>Wins and Loses</h3>
+    </ul>
+  </div>
+  <script type="text/javascript" src="./src/index.js"></script>
+  <script type="text/javascript" src="./src/dealer.js"></script>
+  <script type="text/javascript" src="./src/events.js"></script>
+  <script type="text/javascript" src="./src/section3.js"></script>
+</body>
+
+</html>

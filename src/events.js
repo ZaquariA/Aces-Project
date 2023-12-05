@@ -7,8 +7,9 @@ function startGame() {
     shuffleCards()
       .then(data => {
         deckId = data.deck_id
-  
-        cleanTable()
+
+        cleanDataForNewGame()
+        // showBackOfCards()
   
         getCards(deckId, 2)
           .then(cards => showCardOnTable(cards, "#cards_player"))
@@ -16,6 +17,12 @@ function startGame() {
   })
 }
 
+function cleanDataForNewGame() {
+  cleanTable()
+
+  userDone = false
+  getEl('#game_status').textContent = "In process..."
+}
 
 // HIT BUTTON
 function callHit() {
@@ -26,22 +33,23 @@ function callHit() {
   })
 }
 
-
 // STAND BUTTON
 function callStand() {
   getEl('#btn_stand').addEventListener('click', () => {
+    console.log('STAND')
     userDone = true
-  //   getCards(deckId, 2)
-  //     .then(cards => showCardOnTable(cards, "#cards_casino"))
+    getCards(deckId, 1)
+      .then(cards => showCardOnTable(cards, "#cards_casino"))
   })
 }
 
 // HIT BUTTON
 function callDealerHit() {
+  console.log('callDealerHit')
     getCards(deckId, 1)
       .then(cards => showCardOnTable(cards, "#cards_casino"))
 }
 
-startGame()
+startGame()   
 callHit()
 callStand()

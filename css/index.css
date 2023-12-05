@@ -1,0 +1,48 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	/* background-color: rgb(200, 254, 200); */
+	background-image: url(https://www.casinosupply.com/cdn/shop/products/DSCF7808_5000x.jpg?v=1619810373);
+	display: grid;
+	color: rgb(255, 255, 255);
+	/* grid-template-columns: repeat(3, 1fr); */
+	grid-template-columns: 300px auto 300px;
+}
+
+.card {
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+	transition: 0.3s;
+	width: 120px;
+	/* border-radius: 5px; */
+	display: flex;
+	justify-content: space-between;
+	/* this will add equal space between each image */
+}
+
+#draw_card {
+	display: flex;
+	overflow-x: auto;
+	margin: 1rem 0;
+	max-width: calc(100vw - 2rem);
+}
+
+#draw_card img {
+	flex: 0 1 auto;
+	height: 150px;
+	margin-right: 0.5rem;
+	cursor: pointer;
+}
+
+#draw_card img:last-child {
+	margin-right: 0;
+}
+
+.image-row {
+	display: flex;
+	justify-content: space-between;
+	/* this will add equal space between each image */
+}
+
