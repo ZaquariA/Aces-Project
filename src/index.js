@@ -39,8 +39,21 @@ function showUsers(users) {
     
     table.innerHTML = ""
 
+    const trHeaders = createEl('tr')
+    const thPlayers = createEl('th')
+    const thPoints = createEl('th')
+    const thWinsLoses = createEl('th')
+    
+    thPlayers.textContent = "Player Name"
+    thPoints.textContent = "Points"
+    thWinsLoses.textContent = "Wins / Loses"
+
+    trHeaders.append(thPlayers, thPoints, thWinsLoses)
+    table.append(trHeaders)
+
   users.forEach(user => {
     // console.log(user)
+    
     
     const tr = createEl('tr')
     const tdPlayer = createEl('td')
@@ -48,6 +61,7 @@ function showUsers(users) {
     const tdWinsLoses = createEl('td')
     const tdButton = createEl('td')
     const tdDelete = createEl('button')
+ 
 
     tdPlayer.textContent = user.username
     tdPoints.textContent = user.points
@@ -62,6 +76,9 @@ function showUsers(users) {
 
     tdButton.addEventListener('click', () => {
         deleteUser(user.id)
+    })
+    tdPlayer.addEventListener('click', () => {
+        console.log('click')
     })
   })
 }
