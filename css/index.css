@@ -7,6 +7,7 @@ body {
 	/* background-color: rgb(200, 254, 200); */
 	background-image: url(https://www.casinosupply.com/cdn/shop/products/DSCF7808_5000x.jpg?v=1619810373);
 	display: grid;
+	font-family: 'BR Shape', Lato, serif;
 	color: rgb(255, 255, 255);
 	/* grid-template-columns: repeat(3, 1fr); */
 	grid-template-columns: 300px auto 300px;
@@ -44,4 +45,21 @@ body {
 	display: flex;
 	justify-content: space-between;
 	/* this will add equal space between each image */
+}
+
+.button {
+	background-color: #000000;
+	color: rgb(255, 255, 255);
+	/* color: rgb(135, 135, 135); */
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+#game-panel {
+	margin: auto;
 }

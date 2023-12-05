@@ -11,7 +11,7 @@ function checkResult() {
   } else if (userDone && dealerCardsValue < 15 ) {
     console.log('dealerCardsValue < 15 ')
     callDealerHit()
-  } else if (userDone && dealerCardsValue > 15 ) {
+  } else if (userDone && dealerCardsValue >= 15 ) {
     console.log('dealerCardsValue >= 15 ')
     
   if (playerCardsValue === dealerCardsValue) {
