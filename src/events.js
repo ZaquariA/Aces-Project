@@ -53,3 +53,32 @@ function callDealerHit() {
 startGame()   
 callHit()
 callStand()
+
+
+
+getEl('#test').addEventListener('click', () => {
+  const playerName = getEl('#pname').value
+  
+  const newUser = {
+    "username": playerName,
+      "points": 100,
+      "wins_loses": [0,0],
+      "last5games": []
+  }
+
+  console.log(newUser)
+  postUrl(newUser)
+})
+
+function postUrl(newUser) {
+  const url = 'http://localhost:3000/users';
+  const options = {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(newUser)
+  }
+
+  fetch(url, options)
+    .then(res => res.json())
+      .then(user => console.log(user))
+}

@@ -63,6 +63,16 @@
         "Player",
         "Casino"
       ]
+    },
+    {
+      "username": "John",
+      "points": 100,
+      "wins_loses": [
+        0,
+        0
+      ],
+      "last5games": [],
+      "id": 6
     }
   ]
 }
