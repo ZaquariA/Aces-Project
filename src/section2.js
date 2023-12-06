@@ -1,9 +1,3 @@
-console.log("test")
-
-const urlDeck = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-const urlShuffleCards = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-const urlUsers = 'http://localhost:3000/users'
-
 let deckId
 let playerTotalBetPoints = 100
 let dealerTotalBetPoints = 100
@@ -24,28 +18,28 @@ showBackOfDealerCards()
 //   console.log(data)
 // })
 
-// Users Funtionality
-urlGet(urlUsers)
-  .then(data => {
-    // console.log('RES: ', data)
+// // Users Funtionality
+// urlGet(urlUsers)
+//   .then(data => {
+//     // console.log('RES: ', data)
 
-    showUsers(data)
-  })
+//     showUsers(data)
+//   })
 
-function showUsers(users) {
-  const listUsers = getEl('#list')
+// function showUsers(users) {
+//   const listUsers = getEl('#list')
   
 
-  users.forEach(user => {
-    // console.log(user)
-    const li = createEl('li')
-    const deleteBtn = createEl('button')
-    li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
-    deleteBtn.textContent = "DELETE"
+//   users.forEach(user => {
+//     // console.log(user)
+//     const li = createEl('li')
+//     const deleteBtn = createEl('button')
+//     li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
+//     deleteBtn.textContent = "DELETE"
 
-    listUsers.append(li, deleteBtn)
-  })
-}
+//     listUsers.append(li, deleteBtn)
+//   })
+// }
 
 
 // Work with CARDS
@@ -150,8 +144,7 @@ function cleanPlayerTable() {
 function cleanDealerTable() {
   const cardsEl2 = getEl('#cards_casino')
   cardsEl2.innerHTML = ''
-  // showBackOfCards()
-
+ 
   dealerCardsValue = 0
 
   getEl('#score_casino').textContent = `Casino: 0`
@@ -200,69 +193,4 @@ function showBackOfDealerCards() {
     crd.append(img)
 
   })
-}
-
-
-
-
-
-
-
-
-
-// Elements Functions
-function getEl(el) {
-  return document.querySelector(el)
-}
-
-function createEl(el) {
-  return document.createElement(el)
-}
-
-
-
-
-
-// URL Functions
-// GET
-// urlGet(url)
-// .then(data => {
-//   data.map(item => {
-//     get Element
-//     create new element
-
-//     append
-//   })
-// })
-
-function urlGet(url) {
-  return fetch(url)
-    .then(res => res.json())
-}
-
-// PATCH and DELETE
-// userPtch(url, "PATCH/DELETE", {}, 3)
-function userPatch(url, method, body, id) {
-  const options = {method: method,
-    body: JSON.stringify(body),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  }
-  const urlAddress = `${url}/${id}`
-  return fetch(urlAddress, options)
-    .then(res => res.json())
-}
-
-
-
-
-
-
-
-
-
-function urlCUD(url, method, id) {
-  fetch(url)
-    .then(res => res.json())
 }

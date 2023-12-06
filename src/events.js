@@ -58,41 +58,41 @@ callStand()
 
 
 
-getEl('#test').addEventListener('click', () => {
-  const playerName = getEl('#pname').value
+// getEl('#test').addEventListener('click', () => {
+//   const playerName = getEl('#pname').value
   
-  const newUser = {
-    "username": playerName,
-      "points": 100,
-      "wins_loses": [0,0],
-      "last5games": []
-  }
+//   const newUser = {
+//     "username": playerName,
+//       "points": 100,
+//       "wins_loses": [0,0],
+//       "last5games": []
+//   }
 
-  console.log(newUser)
-  postUrl(newUser)
-})
+//   console.log(newUser)
+//   postUrl(newUser)
+// })
 
-function postUrl(newUser) {
-  const url = 'http://localhost:3000/users';
-  const options = {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify(newUser)
-  }
+// function postUrl(newUser) {
+//   const url = 'http://localhost:3000/users';
+//   const options = {
+//     method: "POST",
+//     headers: {"Content-Type":"application/json"},
+//     body: JSON.stringify(newUser)
+//   }
 
-  fetch(url, options)
-    .then(res => res.json())
-      .then(user => createTable(user))
-}
+//   fetch(url, options)
+//     .then(res => res.json())
+//       .then(user => createTable(user))
+// }
 
-function createTable(user) {
-  // create new row
-  // paste information from user object into new row
+// function createTable(user) {
+//   // create new row
+//   // paste information from user object into new row
 
-  const userName = document.createElement('td')
-  userName.textContent = user.username
-  userName.addEventListener('click', () => {
-    // Nothing here
-  })
+//   const userName = document.createElement('td')
+//   userName.textContent = user.username
+//   userName.addEventListener('click', () => {
+//     // Nothing here
+//   })
 
-}
+// }
