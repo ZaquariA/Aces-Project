@@ -1,46 +1,78 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "Zaquari",
-      "points": 50,
-      "wins_loses": [
-        3,
-        5
-      ],
-      "last5games": [
-        "Player",
-        "Casino",
-        "Player",
-        "Player",
-        "Casino"
-      ]
-    },
-    {
-      "id": 2,
-      "username": "Dakota",
-      "points": 150,
-      "wins_loses": [
-        5,
-        5
-      ],
-      "last5games": [
-        "Player",
-        "Casino",
-        "Player",
-        "Player",
-        "Casino"
-      ]
-    },
-    {
-      "username": "Igor",
-      "points": 100,
-      "wins_loses": [
-        0,
-        0
-      ],
-      "last5games": [],
-      "id": 3
-    }
-  ]
-}
+    "users": [
+      {
+        "id": 1,
+        "username": "Zaquari",
+        "points": 50,
+        "wins_loses": [
+          10,
+          5
+        ],
+        "last5games": [
+          "Player",
+          "Casino",
+          "Player",
+          "Player",
+          "Casino"
+        ]
+      },
+      {
+        "id": 2,
+        "username": "Dakota",
+        "points": 150,
+        "wins_loses": [
+          5,
+          5
+        ],
+        "last5games": [
+          "Player",
+          "Casino",
+          "Player",
+          "Player",
+          "Casino"
+        ]
+      },
+      {
+        "id": 3,
+        "username": "Bob",
+        "points": 150,
+        "wins_loses": [
+          5,
+          5
+        ],
+        "last5games": [
+          "Player",
+          "Casino",
+          "Player",
+          "Player",
+          "Casino"
+        ]
+      },
+      {
+        "id": 4,
+        "username": "John",
+        "points": 250,
+        "wins_loses": [
+          8,
+          6
+        ],
+        "last5games": [
+          "Player",
+          "Casino",
+          "Player",
+          "Player",
+          "Casino"
+        ]
+      },
+      {
+        "username": "John",
+        "points": 100,
+        "wins_loses": [
+          0,
+          0
+        ],
+        "last5games": [],
+        "id": 6
+      }
+    ]
+  }
