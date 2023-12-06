@@ -1,6 +1,4 @@
-const urlUsers = 'http://localhost:3000/users'
-
-
+getAllUsers()
 // Users Funtionality
 function getAllUsers(){
 urlGet(urlUsers)
@@ -72,6 +70,7 @@ function showUsers(users) {
     tdEditButton.addEventListener('click', () => {
         editUser(user)
     })
+    playerForm.reset()
   })
 }
 
