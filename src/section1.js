@@ -1,3 +1,5 @@
+let currentUser
+
 getAllUsers()
 // Users Funtionality
 function getAllUsers(){
@@ -36,7 +38,7 @@ function showUsers(users) {
 
   users.forEach(user => {
     
-    
+
     const tr = createEl('tr')
     const tdEditButton = createEl('td')
     const editButton = createEl('button')
@@ -65,15 +67,48 @@ function showUsers(users) {
         deleteUser(user.id)
     })
     tdPlayer.addEventListener('click', () => {
-        console.log('click')
+        displayTotalAndName(user)
+        showGameHistory(user)
     })
     tdEditButton.addEventListener('click', () => {
         editUser(user)
+    })
+    tdPlayer.addEventListener('mouseover', () => {
+        tdPlayer.style.color = "red"
+        tdPlayer.style.cursor = "pointer"
+    })
+    tdPlayer.addEventListener('mouseout', () => {
+        tdPlayer.style.color = "yellow"
     })
     playerForm.reset()
   })
 }
 
+function displayTotalAndName(user) {
+    const totalPlayPointsAndName = document.querySelector('div#game-panel h2')
+    totalPlayPointsAndName.textContent = "Name: " + user.username + "  " + "Total: " + user.points
+}
+
+function showGameHistory(user) {
+    const ul = document.getElementById('score')
+    ul.innerHTML = ""
+    const h2 = document.createElement('h2')
+    const h3 = document.createElement('h3')
+    const p = document.createElement('p')
+
+
+    h2.textContent = "Game History"
+    h3.textContent = "Wins and Loses"
+    
+    p.textContent = user.wins_loses[0] + " / " + user.wins_loses[1]   ///  user["wins_loses"] == user.wins_loses
+    ul.append(h2, h3, p)
+
+    user.last5games.forEach(item => {
+        const p = document.createElement('p')
+        p.textContent = item
+        ul.append(p)
+    })
+}
 //Edit user function 
 
 function editUser(user) {
