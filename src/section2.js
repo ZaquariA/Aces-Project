@@ -114,7 +114,7 @@ function showCardOnTable(cards, cardsEl) {
 
     getEl('#btn_hit').style.visibility=""
     getEl('#btn_stand').style.visibility=""
-    console.log('SHOW CARD')
+
     addPlayerValue(card, cardsEl)
     updateTableScore(cardsEl)
     checkResult()

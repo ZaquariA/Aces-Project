@@ -67,6 +67,7 @@ function showUsers(users) {
         deleteUser(user.id)
     })
     tdPlayer.addEventListener('click', () => {
+        currentUser = user
         displayTotalAndName(user)
         showGameHistory(user)
     })
@@ -95,13 +96,15 @@ function showGameHistory(user) {
     const h2 = document.createElement('h2')
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
+    const h3WL = document.createElement('h3')
 
 
     h2.textContent = "Game History"
     h3.textContent = "Wins and Loses"
+    h3WL.textContent = "Last 5 Games"
     
     p.textContent = user.wins_loses[0] + " / " + user.wins_loses[1]   ///  user["wins_loses"] == user.wins_loses
-    ul.append(h2, h3, p)
+    ul.append(h2, h3, p, h3WL)
 
     user.last5games.forEach(item => {
         const p = document.createElement('p')

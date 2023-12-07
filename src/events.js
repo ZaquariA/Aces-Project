@@ -2,8 +2,16 @@
 
 // NEW GAME BUTTON
 function startGame() {
-    getEl('#btn_new_game').addEventListener('click', () => {
-      console.log('start')
+  getEl('#btn_new_game').addEventListener('click', () => {
+    const bet = getEl('#bet')
+
+    if (!currentUser) {
+      alert('Select User!')
+    } else if (bet.value === "") {
+      alert("Enter the bet!")
+    } else {      
+      lockTheGame(true)
+
       shuffleCards()
         .then(data => {
           deckId = data.deck_id
@@ -14,47 +22,48 @@ function startGame() {
           getCards(deckId, 2)
             .then(cards => showCardOnTable(cards, "#cards_player"))
         })
-    })
-  }
+    }
+  })
+}
   
-  function cleanDataForNewGame() {
-    cleanPlayerTable()
+function cleanDataForNewGame() {
+  cleanPlayerTable()
+  cleanDealerTable()
+
+  userDone = false
+  getEl('#game_status').textContent = "In process..."
+}
+
+// HIT BUTTON
+function callHit() {
+  getEl('#btn_hit').addEventListener('click', () => {
+
+    getCards(deckId, 1)
+      .then(cards => showCardOnTable(cards, "#cards_player"))
+  })
+}
+
+// STAND BUTTON
+function callStand() {
+  getEl('#btn_stand').addEventListener('click', () => {
+    console.log('STAND')
     cleanDealerTable()
-  
-    userDone = false
-    getEl('#game_status').textContent = "In process..."
-  }
-  
-  // HIT BUTTON
-  function callHit() {
-    getEl('#btn_hit').addEventListener('click', () => {
-  
-      getCards(deckId, 1)
-        .then(cards => showCardOnTable(cards, "#cards_player"))
-    })
-  }
-  
-  // STAND BUTTON
-  function callStand() {
-    getEl('#btn_stand').addEventListener('click', () => {
-      console.log('STAND')
-      cleanDealerTable()
-      userDone = true
-      getCards(deckId, 1)
-        .then(cards => showCardOnTable(cards, "#cards_casino"))
-    })
-  }
-  
-  // HIT BUTTON
-  function callDealerHit() {
-    console.log('callDealerHit')
-      getCards(deckId, 1)
-        .then(cards => showCardOnTable(cards, "#cards_casino"))
-  }
-  
-  startGame()   
-  callHit()
-  callStand()
+    userDone = true
+    getCards(deckId, 1)
+      .then(cards => showCardOnTable(cards, "#cards_casino"))
+  })
+}
+
+// HIT BUTTON
+function callDealerHit() {
+  console.log('callDealerHit')
+    getCards(deckId, 1)
+      .then(cards => showCardOnTable(cards, "#cards_casino"))
+}
+
+startGame()   
+callHit()
+callStand()
   
   
   
