@@ -27,13 +27,19 @@
       "id": 4
     },
     {
-      "username": "Igor",
-      "points": 100,
+      "username": "test",
+      "points": 200,
       "wins_loses": [
-        0,
-        0
+        9,
+        4
       ],
-      "last5games": [],
+      "last5games": [
+        "Player",
+        "Player",
+        "Casino",
+        "Player",
+        "Casino"
+      ],
       "id": 5
     }
   ]

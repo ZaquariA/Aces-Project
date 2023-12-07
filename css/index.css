@@ -5,7 +5,11 @@ html {
 
 body {
 	/* background-color: rgb(200, 254, 200); */
-	background-image: url(https://www.casinosupply.com/cdn/shop/products/DSCF7808_5000x.jpg?v=1619810373);
+	/* https://images.unsplash.com/photo-1617957718645-7680362d6312?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
+	/* https://www.casinosupply.com/cdn/shop/products/DSCF7808_5000x.jpg?v=1619810373 */
+	/* background-image: url(https://images.unsplash.com/photo-1617957718645-7680362d6312?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+	/* background-image: linear-gradient(to right, rgb(0, 24, 5), rgb(0, 74, 32)); */
+	background-image: radial-gradient(circle at center, rgb(0, 107, 47), rgb(1, 32, 7));
 	display: grid;
 	font-family: 'BR Shape', Lato, serif;
 	color: rgb(255, 255, 255);
@@ -60,26 +64,42 @@ body {
 	cursor: pointer;
 }
 
+#btn_new_game {
+	width: 225px;
+}
+
 #game-panel {
 	margin: auto;
 }
 
 #player-table {
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
-td { 
-    border-top: 2px solid brown;
-    border-bottom: 2px solid brown;
-    margin: 1em;
+
+td {
+	border-top: 2px solid brown;
+	border-bottom: 2px solid brown;
+	margin: 1em;
 }
-table { 
-    color: yellow;
-    text-align: center;
-    /* background: rgb(121, 31, 31); */
-    width: 100%
+
+table {
+	color: yellow;
+	text-align: center;
+	/* background: rgb(121, 31, 31); */
+	width: 100%
 }
-#create-player { 
-    margin: 1em 0 1em 0;
-    background: brown;
-    color: yellow;
+
+#create-player {
+	margin: 1em 0 1em 0;
+	background: brown;
+	color: yellow;
+}
+
+#bet {
+	/* height: 45px; */
+	line-height: 30px;
+	width: 215px;
+	padding: 5px;
+	font-size: 20px;
+	text-align: right;
 }
