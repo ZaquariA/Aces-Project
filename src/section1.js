@@ -7,7 +7,22 @@ urlGet(urlUsers)
   .then(data => {
 
     showUsers(data)
+    hideAllGameButtons(true)
   })
+}
+
+function hideAllGameButtons(status) {
+  if (status) {
+    getEl('#btn_hit').style.visibility="hidden" 
+    getEl('#btn_stand').style.visibility="hidden"
+    getEl('#btn_new_game').style.visibility="hidden"
+    getEl('#bet').style.visibility="hidden"
+  } else {
+    getEl('#btn_hit').style.visibility="" 
+    getEl('#btn_stand').style.visibility=""
+    getEl('#btn_new_game').style.visibility=""
+    getEl('#bet').style.visibility=""
+  }
 }
 
 const table = document.querySelector('#player-table')
@@ -70,6 +85,12 @@ function showUsers(users) {
         currentUser = user
         displayTotalAndName(user)
         showGameHistory(user)
+        hideAllGameButtons(false)
+        
+        cleanPlayerTable()
+        cleanDealerTable()
+        showBackOfPlayerCards()
+        showBackOfDealerCards()
     })
     tdEditButton.addEventListener('click', () => {
         editUser(user)
@@ -88,6 +109,7 @@ function showUsers(users) {
 function displayTotalAndName(user) {
     const totalPlayPointsAndName = document.querySelector('div#game-panel h2')
     totalPlayPointsAndName.textContent = "Name: " + user.username + "  " + "Total: " + user.points
+    console.log(2)
 }
 
 function showGameHistory(user) {

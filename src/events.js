@@ -9,6 +9,8 @@ function startGame() {
       alert('Select User!')
     } else if (bet.value === "") {
       alert("Enter the bet!")
+    } else if (bet.value > currentUser.points) {
+      alert("Your Bet is higher then Total!")
     } else {      
       lockTheGame(true)
 

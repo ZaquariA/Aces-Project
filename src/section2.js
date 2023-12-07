@@ -166,6 +166,7 @@ function setGameStatus(text){
 }
 
 function showBackOfPlayerCards() {
+  getEl('#cards_player').innerHTML = ""
   const arrCards = ['#cards_player', '#cards_player']
   
   arrCards.forEach( cardEl => {
@@ -181,6 +182,7 @@ function showBackOfPlayerCards() {
 }
 
 function showBackOfDealerCards() {
+  getEl('#cards_casino').innerHTML = ""
   const arrCards = ['#cards_casino', '#cards_casino']
   
   arrCards.forEach( cardEl => {

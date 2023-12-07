@@ -14,6 +14,7 @@ function checkResult() {
   } else if (userDone && dealerCardsValue >= 15 ) {
     if (playerCardsValue === dealerCardsValue) {
       setGameStatus('Draw!')
+      lockTheGame(false)
     } else if (playerCardsValue > dealerCardsValue) {
       setGameStatus('You win!')
       updatePlayerData(true)
@@ -40,11 +41,12 @@ function updatePlayerData(status) {
 
   userPatch(urlUsers, "PATCH", currentUser, currentUser.id)
     .then(data => {
+      console.log(1)
       displayTotalAndName(data)
       showGameHistory(data)
+      console.log(3)
+      lockTheGame(false)
     })
-
-  lockTheGame(false)
 }
 
 function updateLast5Games(player) {
@@ -64,4 +66,38 @@ function lockTheGame(status) {
     getEl('#btn_new_game').style.visibility=""
     getEl('#bet').disabled = false;
   }
+
+  console.log(4)
+
+  if (currentUser.points === 0) {
+    setTimeout(sayByeBye, 100);
+  }
 } 
+
+function sayByeBye() {
+  alert("You lost all your money! Bye bye LOOOSER!")
+  userPatch(urlUsers, "DELETE", {}, currentUser.id)
+    .then(data => {
+      getAllUsers()
+      cleanUpAfterLooser()
+    })
+}
+
+function cleanUpAfterLooser(){
+  getEl("#bet").value = 0
+
+  const ul = document.getElementById('score')
+  ul.innerHTML = ""
+  const h2 = document.createElement('h2')
+  const h3 = document.createElement('h3')
+  const p = document.createElement('p')
+  const h3WL = document.createElement('h3')
+
+
+  h2.textContent = "Game History"
+  h3.textContent = "Wins and Loses"
+  h3WL.textContent = "Last 5 Games"
+
+  p.textContent = "0 / 0"   ///  user["wins_loses"] == user.wins_loses
+  ul.append(h2, h3, p, h3WL)
+}
