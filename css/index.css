@@ -5,7 +5,7 @@ html {
 
 body {
 	/* background-color: rgb(200, 254, 200); */
-	background-image: url(https://www.casinosupply.com/cdn/shop/products/DSCF7808_5000x.jpg?v=1619810373);
+	background-image: radial-gradient(circle at center,  rgb(0, 107, 47), rgb(1, 32, 7));
 	display: grid;
 	font-family: 'BR Shape', Lato, serif;
 	color: rgb(255, 255, 255);
@@ -73,7 +73,7 @@ td {
     margin: 1em;
 }
 table { 
-    color: yellow;
+    color: whitesmoke;
     text-align: center;
     /* background: rgb(121, 31, 31); */
     width: 100%
@@ -81,5 +81,16 @@ table {
 #create-player { 
     margin: 1em 0 1em 0;
     background: brown;
-    color: yellow;
+}
+#player-form, input#pname {
+	font-size: 20px;
+}
+
+#bet {
+	/* height: 45px; */
+	line-height: 30px;
+	width: 215px;
+	padding: 5px;
+	font-size: 20px;
+	text-align: right;
 }

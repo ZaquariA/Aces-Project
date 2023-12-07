@@ -100,7 +100,7 @@ function showUsers(users) {
         tdPlayer.style.cursor = "pointer"
     })
     tdPlayer.addEventListener('mouseout', () => {
-        tdPlayer.style.color = "yellow"
+        tdPlayer.style.color = "whitesmoke"
     })
     playerForm.reset()
   })
