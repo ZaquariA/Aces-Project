@@ -15,7 +15,7 @@ urlGet(urlUsers)
     const ul = document.getElementById('score')
 
     p.textContent = user.wins_loses[0] + " / " + user.wins_loses[1]   ///  user["wins_loses"] == user.wins_loses
-    ul.append(p)
+    // ul.append(p)
 
 
   }
@@ -32,11 +32,8 @@ urlGet(urlUsers)
         user.last5games.forEach(item => {
             const p = document.createElement('p')
             p.textContent = item
-            ul.append(p)
+            // ul.append(p)
         })
       } 
      
     }
-
-
-

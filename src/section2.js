@@ -1,9 +1,3 @@
-console.log("test")
-
-const urlDeck = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-const urlShuffleCards = 'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
-const urlUsers = 'http://localhost:3000/users'
-
 let deckId
 let playerTotalBetPoints = 100
 let dealerTotalBetPoints = 100
@@ -15,8 +9,8 @@ let userDone = false
 
 let cardsValArr = ["ACE", "ACE"]
 
-
-showBackOfCards()
+showBackOfPlayerCards()
+showBackOfDealerCards()
 
 // userPatch(urlUsers, "DELETE", {}, 3)
 // userPatch(urlUsers, "PATCH",{somedata}, 3)
@@ -24,29 +18,28 @@ showBackOfCards()
 //   console.log(data)
 // })
 
+// // Users Funtionality
+// urlGet(urlUsers)
+//   .then(data => {
+//     // console.log('RES: ', data)
 
-// Users Funtionality
-urlGet(urlUsers)
-  .then(data => {
-    // console.log('RES: ', data)
+//     showUsers(data)
+//   })
 
-    showUsers(data)
-  })
-
-function showUsers(users) {
-  const listUsers = getEl('#list')
+// function showUsers(users) {
+//   const listUsers = getEl('#list')
   
 
-  users.forEach(user => {
-    // console.log(user)
-    const li = createEl('li')
-    const deleteBtn = createEl('button')
-    li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
-    deleteBtn.textContent = "DELETE"
+//   users.forEach(user => {
+//     // console.log(user)
+//     const li = createEl('li')
+//     const deleteBtn = createEl('button')
+//     li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
+//     deleteBtn.textContent = "DELETE"
 
-    listUsers.append(li, deleteBtn)
-  })
-}
+//     listUsers.append(li, deleteBtn)
+//   })
+// }
 
 
 // Work with CARDS
@@ -121,7 +114,7 @@ function showCardOnTable(cards, cardsEl) {
 
     getEl('#btn_hit').style.visibility=""
     getEl('#btn_stand').style.visibility=""
-    console.log('SHOW CARD')
+
     addPlayerValue(card, cardsEl)
     updateTableScore(cardsEl)
     checkResult()
@@ -139,17 +132,21 @@ function addPlayerValue(card, player) {
   }
 }
 
-function cleanTable() {
+function cleanPlayerTable() {
   const cardsEl = getEl('#cards_player')
   cardsEl.innerHTML = ''
-  const cardsEl2 = getEl('#cards_casino')
-  cardsEl2.innerHTML = ''
-  // showBackOfCards()
-
+  
   playerCardsValue = 0
-  dealerCardsValue = 0
 
   getEl('#score_player').textContent = `Player: 0`
+}
+
+function cleanDealerTable() {
+  const cardsEl2 = getEl('#cards_casino')
+  cardsEl2.innerHTML = ''
+ 
+  dealerCardsValue = 0
+
   getEl('#score_casino').textContent = `Casino: 0`
 }
 
@@ -168,8 +165,9 @@ function setGameStatus(text){
   getEl('#btn_stand').style.visibility="hidden"
 }
 
-function showBackOfCards() {
-  const arrCards = ['#cards_player', '#cards_player', '#cards_casino', '#cards_casino']
+function showBackOfPlayerCards() {
+  getEl('#cards_player').innerHTML = ""
+  const arrCards = ['#cards_player', '#cards_player']
   
   arrCards.forEach( cardEl => {
     const crd = getEl(cardEl)
@@ -183,38 +181,18 @@ function showBackOfCards() {
   })
 }
 
+function showBackOfDealerCards() {
+  getEl('#cards_casino').innerHTML = ""
+  const arrCards = ['#cards_casino', '#cards_casino']
+  
+  arrCards.forEach( cardEl => {
+    const crd = getEl(cardEl)
+    const img = createEl('img')
 
-// Elements Functions
-function getEl(el) {
-  return document.querySelector(el)
-}
+    img.src = "https://deckofcardsapi.com/static/img/back.png"
+    img.alt = "Avatar"
+    img.style = "width:100%"
+    crd.append(img)
 
-function createEl(el) {
-  return document.createElement(el)
-}
-
-
-function urlGet(url) {
-  return fetch(url)
-    .then(res => res.json())
-}
-
-// PATCH and DELETE
-// userPtch(url, "PATCH/DELETE", {}, 3)
-function userPatch(url, method, body, id) {
-  const options = {method: method,
-    body: JSON.stringify(body),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  }
-  const urlAddress = `${url}/${id}`
-  return fetch(urlAddress, options)
-    .then(res => res.json())
-}
-
-
-function urlCUD(url, method, id) {
-  fetch(url)
-    .then(res => res.json())
+  })
 }

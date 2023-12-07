@@ -4,25 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+  <link href="https://fonts.cdnfonts.com/css/br-shape" rel="stylesheet">
+
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
   <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
 
   <div id="users-panel">
-    <form>
+    <form id="player-form">
       <label for="pname">Player Name:</label>
       <input type="text" id="pname" name="pname"><br><br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Create">
     </form>
-    <ul id="list">
-    </ul>
+    <br>
+    <br>
+    <table id="player-table"></table>
   </div>
 
   <div id="game-panel">
     <h1 id="game_status">Welcome to Aces Casino</h1>
-    <button id="btn_new_game">Start GAme</button>
-
+    <h2>Total: </h2>
     <p id="score_casino">Casino: 0</p>
     <div id="cards_casino" class="card">
     </div>
@@ -31,9 +37,11 @@
     <div id="cards_player" class="card">
     </div>
     <br>
-    <button id="btn_hit">HIT</button>
-    <button id="btn_stand">STAND</button>
-
+    <button id="btn_hit" class="button">HIT</button>
+    <button id="btn_stand" class="button">STAND</button>
+    <br>
+    <input type="number" id="bet" value="0" placeholder="Enter your bet"></input>
+    <button id="btn_new_game" class="button">Start Game</button>
   </div>
 
 
@@ -43,11 +51,15 @@
     <ul id="score">
       <h2>Game History</h2>
       <h3>Wins and Loses</h3>
+      <p> 0 / 0</p>
+      <h3>Last 5 Games</h3>
     </ul>
   </div>
-  <script type="text/javascript" src="./src/index.js"></script>
+  <script type="text/javascript" src="./src/crud.js"></script>
+  <script type="text/javascript" src="./src/section1.js"></script>
   <script type="text/javascript" src="./src/dealer.js"></script>
   <script type="text/javascript" src="./src/events.js"></script>
+  <script type="text/javascript" src="./src/section2.js"></script>
   <script type="text/javascript" src="./src/section3.js"></script>
 </body>
 
