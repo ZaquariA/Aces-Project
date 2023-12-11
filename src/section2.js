@@ -12,36 +12,6 @@ let cardsValArr = ["ACE", "ACE"]
 showBackOfPlayerCards()
 showBackOfDealerCards()
 
-// userPatch(urlUsers, "DELETE", {}, 3)
-// userPatch(urlUsers, "PATCH",{somedata}, 3)
-// .then(data => {
-//   console.log(data)
-// })
-
-// // Users Funtionality
-// urlGet(urlUsers)
-//   .then(data => {
-//     // console.log('RES: ', data)
-
-//     showUsers(data)
-//   })
-
-// function showUsers(users) {
-//   const listUsers = getEl('#list')
-  
-
-//   users.forEach(user => {
-//     // console.log(user)
-//     const li = createEl('li')
-//     const deleteBtn = createEl('button')
-//     li.textContent = `${user.username} ${user.points} ${user.wins_loses[0]} | ${user.wins_loses[1]}`
-//     deleteBtn.textContent = "DELETE"
-
-//     listUsers.append(li, deleteBtn)
-//   })
-// }
-
-
 // Work with CARDS
 
 function getCardValue(card) {

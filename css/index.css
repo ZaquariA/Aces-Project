@@ -15,6 +15,7 @@ body {
 	color: rgb(255, 255, 255);
 	/* grid-template-columns: repeat(3, 1fr); */
 	grid-template-columns: 300px auto 300px;
+	/* text-align: center; */
 }
 
 .card {

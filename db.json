@@ -1,46 +1,16 @@
 {
   "users": [
     {
-      "id": 2,
-      "username": "Dakota",
-      "points": 150,
-      "wins_loses": [
-        5,
-        5
-      ],
-      "last5games": [
-        "Player",
-        "Casino",
-        "Player",
-        "Player",
-        "Casino"
-      ]
-    },
-    {
-      "username": "Zaq",
-      "points": 100,
+      "username": "кк",
+      "points": 90,
       "wins_loses": [
         0,
-        0
-      ],
-      "last5games": [],
-      "id": 4
-    },
-    {
-      "username": "test",
-      "points": 200,
-      "wins_loses": [
-        9,
-        4
+        1
       ],
       "last5games": [
-        "Player",
-        "Player",
-        "Casino",
-        "Player",
         "Casino"
       ],
-      "id": 5
+      "id": 1
     }
   ]
 }
